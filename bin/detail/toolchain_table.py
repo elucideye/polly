@@ -53,12 +53,14 @@ toolchain_table = [
     Toolchain('android-ndk-r10e-api-16-armeabi-v7a-neon', 'Unix Makefiles'),
     Toolchain('android-ndk-r10e-api-16-armeabi-v7a-neon-clang-35', 'Unix Makefiles'),
     Toolchain('android-ndk-r10e-api-16-armeabi-v7a-neon-clang-35-hid', 'Unix Makefiles'),
-    Toolchain('android-ndk-r10e-api-16-armeabi-v7a-neon-clang-35-hid-sections.cmake', 'Unix Makefiles'),
+    Toolchain('android-ndk-r10e-api-16-armeabi-v7a-neon-clang-35-hid-sections', 'Unix Makefiles'),
     Toolchain('android-ndk-r10e-api-16-x86', 'Unix Makefiles'),
     Toolchain('android-ndk-r10e-api-16-x86-hid', 'Unix Makefiles'),
     Toolchain('android-ndk-r10e-api-16-x86-hid-sections', 'Unix Makefiles'),
     Toolchain('android-ndk-r10e-api-19-armeabi-v7a-neon', 'Unix Makefiles'),
+    Toolchain('android-ndk-r10e-api-19-armeabi-v7a-neon-c11', 'Unix Makefiles'),
     Toolchain('android-ndk-r10e-api-19-armeabi-v7a-neon-hid-sections', 'Unix Makefiles'),
+    Toolchain('android-ndk-r10e-api-19-armeabi-v7a-neon-hid-sections-lto', 'Unix Makefiles'),
     Toolchain('android-ndk-r10e-api-21-armeabi-v7a', 'Unix Makefiles'),
     Toolchain('android-ndk-r10e-api-21-armeabi-v7a-neon', 'Unix Makefiles'),
     Toolchain('android-ndk-r10e-api-21-armeabi-v7a-neon-hid-sections', 'Unix Makefiles'),
@@ -99,6 +101,9 @@ toolchain_table = [
     Toolchain('android-ndk-r11c-api-21-mips64', 'Unix Makefiles'),
     Toolchain('android-ndk-r12b-api-19-armeabi-v7a-neon', 'Unix Makefiles'),
     Toolchain('android-ndk-r13b-api-19-armeabi-v7a-neon', 'Unix Makefiles'),
+    Toolchain('android-ndk-r14-api-16-armeabi-v7a-neon-clang-hid-sections-lto', 'Unix Makefiles'),
+    Toolchain('android-ndk-r14-api-19-armeabi-v7a-neon-hid-sections-lto', 'Unix Makefiles'),
+    Toolchain('android-ndk-r14-api-21-arm64-v8a-clang-hid-sections-lto', 'Unix Makefiles'),
     Toolchain('emscripten-cxx11', 'Unix Makefiles'),
     Toolchain('raspberrypi2-cxx11', 'Unix Makefiles')
 ]
@@ -106,6 +111,7 @@ toolchain_table = [
 if os.name == 'nt':
   toolchain_table += [
       Toolchain('mingw', 'MinGW Makefiles'),
+      Toolchain('mingw-c11', 'MinGW Makefiles'),
       Toolchain('msys', 'MSYS Makefiles'),
       Toolchain(
           'nmake-vs-12-2013',
@@ -315,6 +321,7 @@ if platform.system() == 'Darwin':
       Toolchain('ios-nocodesign-10-1-arm64', 'Xcode', ios_version='10.1', nocodesign=True),
       Toolchain('ios-nocodesign-10-1-armv7', 'Xcode', ios_version='10.1', nocodesign=True),
       Toolchain('ios-nocodesign-10-1-wo-armv7s', 'Xcode', ios_version='10.1', nocodesign=True),
+      Toolchain('ios-nocodesign-10-2', 'Xcode', ios_version='10.2', nocodesign=True),
       Toolchain('xcode', 'Xcode'),
       Toolchain('xcode-cxx98', 'Xcode'),
       Toolchain('xcode-nocxx', 'Xcode'),
@@ -351,6 +358,7 @@ if os.name == 'posix':
       Toolchain('gcc-gold', 'Unix Makefiles'),
       Toolchain('gcc-pic', 'Unix Makefiles'),
       Toolchain('gcc-4-8', 'Unix Makefiles'),
+      Toolchain('gcc-4-8-c11', 'Unix Makefiles'),
       Toolchain('gcc-4-8-pic', 'Unix Makefiles'),
       Toolchain('gcc-4-8-pic-hid-sections', 'Unix Makefiles'),
       Toolchain('gcc-cxx98', 'Unix Makefiles'),
@@ -358,7 +366,7 @@ if os.name == 'posix':
       Toolchain('libcxx-hid', 'Unix Makefiles'),
       Toolchain('libcxx-hid-fpic', 'Unix Makefiles'),
       Toolchain('libcxx-fpic-hid-sections', 'Unix Makefiles'),
-      Toolchain('libcxx-hid-sections', 'Unix Makefiles'),    
+      Toolchain('libcxx-hid-sections', 'Unix Makefiles'),
       Toolchain('libcxx-omp', 'Unix Makefiles'),
       Toolchain('sanitize-address', 'Unix Makefiles'),
   ]
